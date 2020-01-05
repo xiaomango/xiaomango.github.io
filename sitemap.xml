@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xiaomango.github.io/2020/01/06/test1-md/</loc>
+    <loc>https://xiaomango.github.io/2020/01/06/MySQL1/</loc>
     
-    <lastmod>2020-01-05T16:31:37.115Z</lastmod>
+    <lastmod>2020-01-05T17:07:00.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiaomango.github.io/2020/01/06/Java%25E5%259F%25BA%25E7%25A1%2580%25E5%25A2%259E%25E5%25BC%25BA/</loc>
+    
+    <lastmod>2020-01-05T17:01:07.263Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://xiaomango.github.io/about/index.html</loc>
     
     <lastmod>2020-01-05T15:41:08.788Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaomango.github.io/2020/01/05/hello-world/</loc>
-    
-    <lastmod>2020-01-05T14:47:21.398Z</lastmod>
     
   </url>
   
