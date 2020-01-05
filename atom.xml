@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiaomango.github.io/"/>
-  <updated>2020-01-05T14:47:21.398Z</updated>
+  <updated>2020-01-05T16:31:37.115Z</updated>
   <id>https://xiaomango.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test1.md</title>
+    <link href="https://xiaomango.github.io/2020/01/06/test1-md/"/>
+    <id>https://xiaomango.github.io/2020/01/06/test1-md/</id>
+    <published>2020-01-05T16:31:01.000Z</published>
+    <updated>2020-01-05T16:31:37.115Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Java" scheme="https://xiaomango.github.io/categories/Java/"/>
+    
+    
+      <category term="javaee" scheme="https://xiaomango.github.io/tags/javaee/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
