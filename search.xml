@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>xml</title>
+      <link href="/2020/01/09/xml/"/>
+      <url>/2020/01/09/xml/</url>
+      
+        <content type="html"><![CDATA[<h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. XML    1. 概念    2. 语法    3. 解析</code></pre><h2 id="XML："><a href="#XML：" class="headerlink" title="XML："></a>XML：</h2><pre><code class="xml">1. 概念：Extensible Markup Language 可扩展标记语言    * 可扩展：标签都是自定义的。 &lt;user&gt;  &lt;student&gt;    * 功能        * 存储数据            1. 配置文件            2. 在网络中传输    * xml与html的区别        1. xml标签都是自定义的，html标签是预定义。        2. xml的语法严格，html语法松散        3. xml是存储数据的，html是展示数据    * w3c:万维网联盟2. 语法：    * 基本语法：        1. xml文档的后缀名 .xml        2. xml第一行必须定义为文档声明        3. xml文档中有且仅有一个根标签        4. 属性值必须使用引号(单双都可)引起来        5. 标签必须正确关闭        6. xml标签名称区分大小写    * 快速入门：        &lt;?xml version=&#39;1.0&#39; ?&gt;        &lt;users&gt;            &lt;user id=&#39;1&#39;&gt;                &lt;name&gt;zhangsan&lt;/name&gt;                &lt;age&gt;23&lt;/age&gt;                &lt;gender&gt;male&lt;/gender&gt;                &lt;br/&gt;            &lt;/user&gt;            &lt;user id=&#39;2&#39;&gt;                &lt;name&gt;lisi&lt;/name&gt;                &lt;age&gt;24&lt;/age&gt;                &lt;gender&gt;female&lt;/gender&gt;            &lt;/user&gt;        &lt;/users&gt;    * 组成部分：        1. 文档声明            1. 格式：&lt;?xml 属性列表 ?&gt;            2. 属性列表：                * version：版本号，必须的属性                * encoding：编码方式。告知解析引擎当前文档使用的字符集，默认值：ISO-8859-1                * standalone：是否独立                    * 取值：                        * yes：不依赖其他文件                        * no：依赖其他文件        2. 指令(了解)：结合css的            * &lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;a.css&quot; ?&gt;        3. 标签：标签名称自定义的            * 规则：                * 名称可以包含字母、数字以及其他的字符                 * 名称不能以数字或者标点符号开始                 * 名称不能以字母 xml（或者 XML、Xml 等等）开始                 * 名称不能包含空格         4. 属性：            id属性值唯一        5. 文本：            * CDATA区：在该区域中的数据会被原样展示                * 格式：  &lt;![CDATA[ 数据 ]]&gt;</code></pre><p>​    </p><pre><code>    * 约束：规定xml文档的书写规则        * 作为框架的使用者(程序员)：            1. 能够在xml中引入约束文档            2. 能够简单的读懂约束文档        * 分类：            1. DTD:一种简单的约束技术            2. Schema:一种复杂的约束技术        * DTD：            * 引入dtd文档到xml文档中                * 内部dtd：将约束规则定义在xml文档中                * 外部dtd：将约束的规则定义在外部的dtd文件中                    * 本地：&lt;!DOCTYPE 根标签名 SYSTEM &quot;dtd文件的位置&quot;&gt;                    * 网络：&lt;!DOCTYPE 根标签名 PUBLIC &quot;dtd文件名字&quot; &quot;dtd文件的位置URL&quot;&gt;</code></pre><pre><code class="xml">        * Schema:            * 引入：                1.填写xml文档的根元素                2.引入xsi前缀.  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;                3.引入xsd文件命名空间.  xsi:schemaLocation=&quot;http://www.itcast.cn/xml  student.xsd&quot;                4.为每一个xsd约束声明一个前缀,作为标识  xmlns=&quot;http://www.itcast.cn/xml&quot;             &lt;students   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;                xmlns=&quot;http://www.itcast.cn/xml&quot;                xsi:schemaLocation=&quot;http://www.itcast.cn/xml  student.xsd&quot;&gt;</code></pre><p>​    </p><pre><code>3. 解析：操作xml文档，将文档中的数据读取到内存中    * 操作xml文档        1. 解析(读取)：将文档中的数据读取到内存中        2. 写入：将内存中的数据保存到xml文档中。持久化的存储    * 解析xml的方式：        1. DOM：将标记语言文档一次性加载进内存，在内存中形成一颗dom树            * 优点：操作方便，可以对文档进行CRUD的所有操作            * 缺点：占内存        2. SAX：逐行读取，基于事件驱动的。            * 优点：不占内存。            * 缺点：只能读取，不能增删改</code></pre><p>​        </p><pre><code>    * xml常见的解析器：        1. JAXP：sun公司提供的解析器，支持dom和sax两种思想        2. DOM4J：一款非常优秀的解析器        3. Jsoup：jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。        4. PULL：Android操作系统内置的解析器，sax方式的。</code></pre><pre><code class="java">    * Jsoup：jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。        * 快速入门：            * 步骤：                1. 导入jar包                2. 获取Document对象                3. 获取对应的标签Element对象                4. 获取数据        * 代码：             //2.1获取student.xml的path            String path = JsoupDemo1.class.getClassLoader().getResource(&quot;student.xml&quot;).getPath();            //2.2解析xml文档，加载文档进内存，获取dom树---&gt;Document            Document document = Jsoup.parse(new File(path), &quot;utf-8&quot;);            //3.获取元素对象 Element            Elements elements = document.getElementsByTag(&quot;name&quot;);            System.out.println(elements.size());            //3.1获取第一个name的Element对象            Element element = elements.get(0);            //3.2获取数据            String name = element.text();            System.out.println(name);    * 对象的使用：        1. Jsoup：工具类，可以解析html或xml文档，返回Document            * parse：解析html或xml文档，返回Document                * parse​(File in, String charsetName)：解析xml或html文件的。                * parse​(String html)：解析xml或html字符串                * parse​(URL url, int timeoutMillis)：通过网络路径获取指定的html或xml的文档对象        2. Document：文档对象。代表内存中的dom树            * 获取Element对象                * getElementById​(String id)：根据id属性值获取唯一的element对象                * getElementsByTag​(String tagName)：根据标签名称获取元素对象集合                * getElementsByAttribute​(String key)：根据属性名称获取元素对象集合                * getElementsByAttributeValue​(String key, String value)：根据对应的属性名和属性值获取元素对象集合        3. Elements：元素Element对象的集合。可以当做 ArrayList&lt;Element&gt;来使用        4. Element：元素对象            1. 获取子元素对象                * getElementById​(String id)：根据id属性值获取唯一的element对象                * getElementsByTag​(String tagName)：根据标签名称获取元素对象集合                * getElementsByAttribute​(String key)：根据属性名称获取元素对象集合                * getElementsByAttributeValue​(String key, String value)：根据对应的属性名和属性值获取元素对象集合            2. 获取属性值                * String attr(String key)：根据属性名称获取属性值            3. 获取文本内容                * String text():获取文本内容                * String html():获取标签体的所有内容(包括字标签的字符串内容)        5. Node：节点对象            * 是Document和Element的父类</code></pre><p>​            </p><pre><code class="java">    * 快捷查询方式：        1. selector:选择器            * 使用的方法：Elements    select​(String cssQuery)                * 语法：参考Selector类中定义的语法        2. XPath：XPath即为XML路径语言，它是一种用来确定XML（标准通用标记语言的子集）文档中某部分位置的语言            * 使用Jsoup的Xpath需要额外导入jar包。            * 查询w3cshool参考手册，使用xpath的语法完成查询            * 代码：                //1.获取student.xml的path                String path = JsoupDemo6.class.getClassLoader().getResource(&quot;student.xml&quot;).getPath();                //2.获取Document对象                Document document = Jsoup.parse(new File(path), &quot;utf-8&quot;);                //3.根据document对象，创建JXDocument对象                JXDocument jxDocument = new JXDocument(document);                //4.结合xpath语法查询                //4.1查询所有student标签                List&lt;JXNode&gt; jxNodes = jxDocument.selN(&quot;//student&quot;);                for (JXNode jxNode : jxNodes) {                    System.out.println(jxNode);                }                System.out.println(&quot;--------------------&quot;);                //4.2查询所有student标签下的name标签                List&lt;JXNode&gt; jxNodes2 = jxDocument.selN(&quot;//student/name&quot;);                for (JXNode jxNode : jxNodes2) {                    System.out.println(jxNode);                }                System.out.println(&quot;--------------------&quot;);                //4.3查询student标签下带有id属性的name标签                List&lt;JXNode&gt; jxNodes3 = jxDocument.selN(&quot;//student/name[@id]&quot;);                for (JXNode jxNode : jxNodes3) {                    System.out.println(jxNode);                }                System.out.println(&quot;--------------------&quot;);                //4.4查询student标签下带有id属性的name标签 并且id属性值为itcast                List&lt;JXNode&gt; jxNodes4 = jxDocument.selN(&quot;//student/name[@id=&#39;itcast&#39;]&quot;);                for (JXNode jxNode : jxNodes4) {                    System.out.println(jxNode);                }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+          <category> javaweb </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xml </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初识BootStrap</title>
+      <link href="/2020/01/09/%E5%88%9D%E8%AF%86BootStrap/"/>
+      <url>/2020/01/09/%E5%88%9D%E8%AF%86BootStrap/</url>
+      
+        <content type="html"><![CDATA[<h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><h1 id="初识BootStrap"><a href="#初识BootStrap" class="headerlink" title="初识BootStrap"></a>初识BootStrap</h1><pre><code>1. 概念： 一个前端开发的框架，Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它简洁灵活，使得 Web 开发更加快捷。    * 框架:一个半成品软件，开发人员可以在框架基础上，在进行开发，简化编码。    * 好处：        1. 定义了很多的css样式和js插件。我们开发人员直接可以使用这些样式和插件得到丰富的页面效果。        2. 响应式布局。            * 同一套页面可以兼容不同分辨率的设备。2. 快速入门    1. 下载Bootstrap    2. 在项目中将这三个文件夹复制    3. 创建html页面，引入必要的资源文件</code></pre><pre><code class="javascript">    &lt;!DOCTYPE html&gt;    &lt;html lang=&quot;zh-CN&quot;&gt;    &lt;head&gt;        &lt;meta charset=&quot;utf-8&quot;&gt;        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;        &lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;        &lt;title&gt;Bootstrap HelloWorld&lt;/title&gt;        &lt;!-- Bootstrap --&gt;        &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre><p>​        </p><pre><code class="javascript">        &lt;!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) --&gt;        &lt;script src=&quot;js/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;        &lt;!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 --&gt;        &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;    &lt;/head&gt;    &lt;body&gt;    &lt;h1&gt;你好，世界！&lt;/h1&gt;    &lt;/body&gt;    &lt;/html&gt;</code></pre><h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><pre><code>* 同一套页面可以兼容不同分辨率的设备。* 实现：依赖于栅格系统：将一行平均分成12个格子，可以指定元素占几个格子* 步骤：    1. 定义容器。相当于之前的table、        * 容器分类：            1. container：两边留白            2. container-fluid：每一种设备都是100%宽度    2. 定义行。相当于之前的tr   样式：row    3. 定义元素。指定该元素在不同的设备上，所占的格子数目。样式：col-设备代号-格子数目        * 设备代号：            1. xs：超小屏幕 手机 (&lt;768px)：col-xs-12            2. sm：小屏幕 平板 (≥768px)            3. md：中等屏幕 桌面显示器 (≥992px)            4. lg：大屏幕 大桌面显示器 (≥1200px)    * 注意：        1. 一行中如果格子数目超过12，则超出部分自动换行。        2. 栅格类属性可以向上兼容。栅格类适用于与屏幕宽度大于或等于分界点大小的设备。        3. 如果真实设备宽度小于了设置栅格类属性的设备代码的最小值，会一个元素沾满一整行。</code></pre><h2 id="CSS样式和JS插件"><a href="#CSS样式和JS插件" class="headerlink" title="CSS样式和JS插件"></a>CSS样式和JS插件</h2><pre><code class="javascript">1. 全局CSS样式：    * 按钮：class=&quot;btn btn-default&quot;    * 图片：        *  class=&quot;img-responsive&quot;：图片在任意尺寸都占100%        *  图片形状            *  &lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-rounded&quot;&gt;：方形            *  &lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt; ： 圆形            *  &lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt; ：相框    * 表格        * table        * table-bordered        * table-hover    * 表单        * 给表单项添加：class=&quot;form-control&quot; 2. 组件：    * 导航条--看文档    * 分页条--看文档3. 插件：    * 轮播图--看文档</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+          <category> javaweb </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BootStrap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript进阶</title>
       <link href="/2020/01/09/JavaScript%E8%BF%9B%E9%98%B6/"/>
       <url>/2020/01/09/JavaScript%E8%BF%9B%E9%98%B6/</url>
